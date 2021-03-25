@@ -12,7 +12,7 @@ DWORD WINAPI PIPETHREAD(LPVOID lpParameter) {
 
 	hPipe = CreateNamedPipe(TEXT("\\\\.\\pipe\\quantumcore"),
 		PIPE_ACCESS_DUPLEX,
-		PIPE_TYPE_BYTE | PIPE_READMODE_BYTE | PIPE_WAIT,   // FILE_FLAG_FIRST_PIPE_INSTANCE is not needed but forces CreateNamedPipe(..) to fail if the pipe already exists...
+		PIPE_TYPE_BYTE | PIPE_READMODE_BYTE | PIPE_WAIT,   
 		1,
 		1024 * 16,
 		1024 * 16,
@@ -24,13 +24,13 @@ DWORD WINAPI PIPETHREAD(LPVOID lpParameter) {
 		
 		while (hPipe != INVALID_HANDLE_VALUE)
 		{
-			if (ConnectNamedPipe(hPipe, NULL) != FALSE)   // wait for someone to connect to the pipe
+			if (ConnectNamedPipe(hPipe, NULL) != FALSE) 
 			{
 				memset(buffer, '\0', BUFFER);
 				while (ReadFile(hPipe, buffer, sizeof(buffer) , &dwRead, NULL) != FALSE)
 				{
 					buffer[dwRead] = '\0';
-					//printf("%s\n", buffer);
+
 					OUTPUT << buffer;
 				}
 			}
