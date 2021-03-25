@@ -23,11 +23,4 @@ void Send(const char* data)
             CloseHandle(hPipe);
         }
     }
-    /*
-    else {
-
-        char error[500];
-        snprintf(error, 500, "Error connecting to pip : %ld", GetLastError());
-        MessageBox(NULL, error, "Error", MB_OK);
-    }*/
 }
