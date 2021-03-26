@@ -69,7 +69,7 @@ int main( int argc, char * argv[] )
 		std::cout << "Would you like to read the DLL Output? (y/N) : ";
 		std::cin >> input;
 		if (input.rfind("y",0) == 0 || input.rfind("Y", 0) == 0) {
-			std::cout << "Enter number of seconds to wait before Reading Input : ";
+			std::cout << "Enter number of seconds to wait before Reading Output : ";
 			std::cin >> seconds;
 			readOutput = true;
 			Prepare();
