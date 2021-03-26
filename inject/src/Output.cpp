@@ -18,7 +18,9 @@ DWORD WINAPI PIPETHREAD(LPVOID lpParameter) {
 		1024 * 16,
 		NMPWAIT_USE_DEFAULT_WAIT,
 		NULL);
-
+	
+	OUTPUT.clear();
+	OUTPUT.str("");
 	while (Run)
 	{
 		
